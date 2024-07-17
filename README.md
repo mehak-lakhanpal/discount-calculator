@@ -120,7 +120,7 @@ mvn clean verify sonar:sonar
                    -Dsonar.token=sqp_ddf186e8d57b60b46ebbdadb9d9520bfcafeba49
 ```
 
-##Sonar Analysis Report
+## Sonar Analysis Report
 
 ![alt text](https://github.com/mehak-lakhanpal/discount-calculator/blob/main/SonarAnalysisReport.png?raw=true)
 
