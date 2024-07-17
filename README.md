@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-# discount-engine
-## application is running on 9867 port and API 
-POST - http://localhost:9867/discount/
-request - 
-{
-    "products":[
-        {
-            "name":"abc",
-            "category":"abc",
-            "price":100,
-            "quantity":1
-        },
-        {
-            "name":"jgjh",
-            "category":"grocery",
-            "price":100,
-            "quantity":1
-        }
-    ],
-    "customer":{
-        "name":"mehak",
-        "customerType":"CUSTOMER",
-        "yearsWithStore":3
-    }
-}
-## use mvn clean install   to build the project and to run test cases
-## you can find the code coverage report under target/site/index.html
-=======
 # Spring Boot Discount Engine Project
 
 This is a sample Java / Maven / Spring Boot (version 3.3.1) application that can be used to calculate discount over a list of products provided. I hope it helps you.
@@ -138,4 +109,3 @@ Install the plugin Sonarlint on IntelliJ IDE. Restart your IDE then right click 
 
 
 
->>>>>>> 35cb9bf (final changes)
