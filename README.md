@@ -108,4 +108,20 @@ RESPONSE: HTTP 200 (OK)
 Install the plugin Sonarlint on IntelliJ IDE. Restart your IDE then right click on your project and click on Analyze with Sonarlint. This will show the sonar issues report for your whole project.
 
 
+## Run Sonarqube using cmd
+
+Use below command to run sonar analysis in your project using cmd
+
+```
+mvn clean verify sonar:sonar 
+                   -Dsonar.projectKey=discount-calculator 
+                   -Dsonar.projectName='discount-calculator' 
+                   -Dsonar.host.url=http://localhost:9000
+                   -Dsonar.token=sqp_ddf186e8d57b60b46ebbdadb9d9520bfcafeba49
+```
+
+##Sonar Analysis Report
+
+![alt text](https://github.com/mehak-lakhanpal/discount-calculator/blob/main/SonarAnalysisReport.png?raw=true)
+
 

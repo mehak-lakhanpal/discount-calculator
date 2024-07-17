@@ -30,21 +30,14 @@ public class DiscountCalculator {
     public double calculateDiscountOnTotalAmount(Double totalPrice, Customer customer) {
         double discount = 0;
         if (totalPrice != 0.0) {
-            switch (customer.getCustomerType()) {
-                case EMPLOYEE -> {
-                    discount = (totalPrice * employeeDiscountPercentage) / 100;
-                }
-                case AFFILIATE -> {
-                    discount = (totalPrice * affiliateDiscountPercentage) / 100;
-                }
-                case CUSTOMER -> {
-                    if (customer.getYearsWithStore() > 2) {
-                        discount = (totalPrice * oldCustomerDiscountPercentage) / 100;
-                    } else {
-                        discount = Math.floor(totalPrice / 100) * newCustomerDiscountPercentage;
-                    }
-                }
-            }
+            discount = switch (customer.getCustomerType()) {
+                case EMPLOYEE ->
+                    (totalPrice * employeeDiscountPercentage) / 100;
+                case AFFILIATE ->
+                    (totalPrice * affiliateDiscountPercentage) / 100;
+                case CUSTOMER ->
+                    customer.getYearsWithStore() > 2? (totalPrice * oldCustomerDiscountPercentage) / 100:Math.floor(totalPrice / 100) * newCustomerDiscountPercentage;
+            };
         }
         return discount;
     }

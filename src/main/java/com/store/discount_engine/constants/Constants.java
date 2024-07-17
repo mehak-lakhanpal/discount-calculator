@@ -1,4 +1,4 @@
-package com.store.discount_engine;
+package com.store.discount_engine.constants;
 
 public class Constants {
     public static final String REQUEST_OBJECT_NULL = "Request object cannot be null";

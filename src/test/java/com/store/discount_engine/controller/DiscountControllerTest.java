@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(MockitoJUnitRunner.class)
-public class DiscountControllerTest {
+class DiscountControllerTest {
 
     @InjectMocks
     private DiscountController discountController;
@@ -34,7 +34,7 @@ public class DiscountControllerTest {
     private DiscountServiceImpl discountService;
 
     @Test
-    public void testCalculateNetAmount() throws Exception{
+    void testCalculateNetAmount() throws Exception{
         Order order = new Order();
         DiscountResponse discountResponse = new DiscountResponse();
         discountResponse.setNetAmount(100.0);
@@ -43,7 +43,7 @@ public class DiscountControllerTest {
     }
 
     @Test
-    public void testCalculateNetAmountThrowsException() throws Exception{
+    void testCalculateNetAmountThrowsException() throws Exception{
         Order order = new Order();
         Mockito.when(discountService.calculateNetAmount(order)).thenThrow(BadRequestException.class);
         assertThrows(BadRequestException.class,()->discountService.calculateNetAmount(order));

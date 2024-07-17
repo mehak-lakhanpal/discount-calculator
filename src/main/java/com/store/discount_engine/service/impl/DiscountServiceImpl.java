@@ -23,8 +23,12 @@ public class DiscountServiceImpl implements DiscountService {
     @Value("${non.discounted.products}")
     private String nonDiscountedProducts;
 
+    private final DiscountCalculator discountCalculator;
+
     @Autowired
-    private DiscountCalculator discountCalculator;
+    public DiscountServiceImpl(DiscountCalculator discountCalculator){
+        this.discountCalculator=discountCalculator;
+    }
 
     /**
      * This method calculate net amount to be paid by customer after applying specified discount

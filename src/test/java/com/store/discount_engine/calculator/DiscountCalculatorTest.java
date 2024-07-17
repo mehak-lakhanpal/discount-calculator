@@ -17,13 +17,13 @@ import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(MockitoJUnitRunner.class)
-public class DiscountCalculatorTest {
+class DiscountCalculatorTest {
 
     @InjectMocks
     private DiscountCalculator discountCalculator;
 
     @Test
-    public void whenCustomerIsEmployeeThenDiscountIs30Test() throws Exception {
+    void whenCustomerIsEmployeeThenDiscountIs30Test() throws Exception {
         Product product = new Product("prod1","book",100,1);
         List<Product> productList = new ArrayList<>();
         productList.add(product);
@@ -35,7 +35,7 @@ public class DiscountCalculatorTest {
 
     }
     @Test
-    public void whenCustomerIsAffiliateThenDiscountIs10Test() throws Exception {
+    void whenCustomerIsAffiliateThenDiscountIs10Test() throws Exception {
         Product product = new Product("prod1","book",100,1);
         List<Product> productList = new ArrayList<>();
         productList.add(product);
@@ -48,7 +48,7 @@ public class DiscountCalculatorTest {
     }
 
     @Test
-    public void whenCustomerIsCustomerOver2YearsThenDiscountIs5Test() throws Exception {
+    void whenCustomerIsCustomerOver2YearsThenDiscountIs5Test() throws Exception {
         Product product = new Product("prod1","book",100,1);
         List<Product> productList = new ArrayList<>();
         productList.add(product);
@@ -61,7 +61,7 @@ public class DiscountCalculatorTest {
 
     }
     @Test
-    public void whenCustomerIsNewCustomerThenDiscountIs5Every100Test() throws Exception {
+    void whenCustomerIsNewCustomerThenDiscountIs5Every100Test() throws Exception {
         Product product = new Product("prod1","book",200,1);
         List<Product> productList = new ArrayList<>();
         productList.add(product);

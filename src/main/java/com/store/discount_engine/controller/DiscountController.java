@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/discount")
 @Slf4j
 public class DiscountController {
+
+    private final DiscountService discountService;
+
     @Autowired
-    private DiscountService discountService;
+    public DiscountController(DiscountService discountService){
+        this.discountService=discountService;
+    }
 
     /**
      * This API calculates discount over a list of products on the basis of Customer Type and returns the net amount to be paid by customer

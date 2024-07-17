@@ -1,8 +1,7 @@
 package com.store.discount_engine.validation;
 
-import com.store.discount_engine.Constants;
+import com.store.discount_engine.constants.Constants;
 import com.store.discount_engine.exception.BadRequestException;
-import com.store.discount_engine.model.Customer;
 import com.store.discount_engine.model.Product;
 import com.store.discount_engine.request.Order;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +10,7 @@ import org.springframework.util.ObjectUtils;
 import java.util.List;
 import java.util.Objects;
 
-import static com.store.discount_engine.Constants.CUSTOMER_OBJECT_NULL;
+import static com.store.discount_engine.constants.Constants.CUSTOMER_OBJECT_NULL;
 
 @Slf4j
 public class DiscountValidator {

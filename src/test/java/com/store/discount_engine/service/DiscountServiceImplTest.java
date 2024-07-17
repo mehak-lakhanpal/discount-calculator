@@ -1,6 +1,6 @@
 package com.store.discount_engine.service;
 
-import com.store.discount_engine.Constants;
+import com.store.discount_engine.constants.Constants;
 import com.store.discount_engine.calculator.DiscountCalculator;
 import com.store.discount_engine.enums.CustomerType;
 import com.store.discount_engine.exception.BadRequestException;
@@ -26,7 +26,7 @@ import static org.junit.Assert.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(MockitoJUnitRunner.class)
-public class DiscountServiceImplTest {
+class DiscountServiceImplTest {
     @InjectMocks
     private DiscountServiceImpl discountService;
 
@@ -34,7 +34,7 @@ public class DiscountServiceImplTest {
     private DiscountCalculator discountCalculator;
 
     @Test
-    public void whenGroceryItemsAreIncludedThenNoDiscountTest() throws Exception {
+    void whenGroceryItemsAreIncludedThenNoDiscountTest() throws Exception {
         List<Product> products = createMockProducts("grocery");
         Customer customer = new Customer();
         customer.setCustomerType(CustomerType.EMPLOYEE);
@@ -46,7 +46,7 @@ public class DiscountServiceImplTest {
     }
 
     @Test
-    public void whenNonGroceryItemsAreIncludedThenAppliedDiscountTest() throws Exception {
+    void whenNonGroceryItemsAreIncludedThenAppliedDiscountTest() throws Exception {
         List<Product> products = createMockProducts("book");
         Customer customer = new Customer();
         customer.setCustomerType(CustomerType.EMPLOYEE);
@@ -58,20 +58,20 @@ public class DiscountServiceImplTest {
     }
 
     @Test
-    public void whenOrderIsNullThenThrowExceptionTest() throws Exception {
+    void whenOrderIsNullThenThrowExceptionTest() throws Exception {
         Exception exception = assertThrows(BadRequestException.class,()->discountService.calculateNetAmount(null));
         Assertions.assertEquals(Constants.REQUEST_OBJECT_NULL,exception.getMessage());
     }
 
     @Test
-    public void whenProductIsNullThenThrowExceptionTest() throws Exception {
+    void whenProductIsNullThenThrowExceptionTest() throws Exception {
         Order order = new Order();
         Exception exception = assertThrows(BadRequestException.class,()->discountService.calculateNetAmount(order));
         Assertions.assertEquals(Constants.PRODUCT_LIST_IS_NULL,exception.getMessage());
     }
 
     @Test
-    public void whenCustomerIsNullThenThrowExceptionTest() throws Exception {
+    void whenCustomerIsNullThenThrowExceptionTest() throws Exception {
         Order order = new Order();
         order.setProducts(createMockProducts("book"));
         Exception exception = assertThrows(BadRequestException.class,()->discountService.calculateNetAmount(order));
@@ -79,7 +79,7 @@ public class DiscountServiceImplTest {
     }
 
     @Test
-    public void whenProductNameIsNullThenThrowExceptionTest() throws Exception {
+    void whenProductNameIsNullThenThrowExceptionTest() throws Exception {
         Order order = new Order();
         Product product = new Product();
         List<Product> productList = new ArrayList<>();
@@ -92,7 +92,7 @@ public class DiscountServiceImplTest {
     }
 
     @Test
-    public void whenProductCategoryIsInvalidThenThrowExceptionTest() throws Exception {
+    void whenProductCategoryIsInvalidThenThrowExceptionTest() throws Exception {
         Order order = new Order();
         Product product = new Product();
         product.setName("Product1");
@@ -106,7 +106,7 @@ public class DiscountServiceImplTest {
     }
 
     @Test
-    public void whenProductPriceIsInvalidThenThrowExceptionTest() throws Exception {
+    void whenProductPriceIsInvalidThenThrowExceptionTest() throws Exception {
         Order order = new Order();
         Product product = new Product();
         product.setName("Product1");
@@ -121,7 +121,7 @@ public class DiscountServiceImplTest {
     }
 
     @Test
-    public void whenProductQuantityIsInvalidThenThrowExceptionTest() throws Exception {
+    void whenProductQuantityIsInvalidThenThrowExceptionTest() throws Exception {
         Order order = new Order();
         Product product = new Product();
         product.setName("Product1");
