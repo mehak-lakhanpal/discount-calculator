@@ -8,4 +8,8 @@ public class Constants {
     public static final String PRODUCT_CATEGORY_INVALID = "Please enter valid product category of product:: %s";
     public static final String PRODUCT_PRICE_INVALID = "Please enter valid price of product:: %s";
     public static final String PRODUCT_QUANTITY_INVALID = "Please enter valid quantity of product:: %s";
+
+    private Constants() {
+        throw new IllegalStateException("Constant class");
+    }
 }

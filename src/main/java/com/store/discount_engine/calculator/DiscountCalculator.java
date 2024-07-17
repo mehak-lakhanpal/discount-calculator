@@ -33,11 +33,9 @@ public class DiscountCalculator {
             switch (customer.getCustomerType()) {
                 case EMPLOYEE -> {
                     discount = (totalPrice * employeeDiscountPercentage) / 100;
-                    break;
                 }
                 case AFFILIATE -> {
                     discount = (totalPrice * affiliateDiscountPercentage) / 100;
-                    break;
                 }
                 case CUSTOMER -> {
                     if (customer.getYearsWithStore() > 2) {
@@ -45,7 +43,6 @@ public class DiscountCalculator {
                     } else {
                         discount = Math.floor(totalPrice / 100) * newCustomerDiscountPercentage;
                     }
-                    break;
                 }
             }
         }

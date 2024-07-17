@@ -8,6 +8,7 @@ import com.store.discount_engine.request.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 
+import java.util.List;
 import java.util.Objects;
 
 import static com.store.discount_engine.Constants.CUSTOMER_OBJECT_NULL;
@@ -30,7 +31,11 @@ public class DiscountValidator {
             throw new BadRequestException(CUSTOMER_OBJECT_NULL);
         }
 
-        for(Product product:order.getProducts()){
+        validateProductList(order.getProducts());
+    }
+
+    private static void validateProductList(List<Product> products) {
+        for(Product product: products){
             if(Objects.isNull(product.getName()) || product.getName().strip().equals("")){
                 log.info("Product name is not valid");
                 throw new BadRequestException(Constants.PRODUCT_NAME_INVALID);
@@ -48,5 +53,8 @@ public class DiscountValidator {
                 throw new BadRequestException(Constants.PRODUCT_QUANTITY_INVALID+product.getName());
             }
         }
+    }
+    private DiscountValidator() {
+        throw new IllegalStateException("Validator class");
     }
 }
