@@ -99,9 +99,9 @@ RESPONSE: HTTP 200 (OK)
 }
 ```
 
-## How to Run Static Code Analysis Using Sonarlint
+## UML Diagram
 
-UML Diagram of this solution is present in root folder with name -  UML_Diagram.jpeg
+![alt text](https://github.com/mehak-lakhanpal/discount-calculator/blob/main/UML_Diagram.jpeg?raw=true)
 
 ## How to Run Static Code Analysis Using Sonarlint
 
